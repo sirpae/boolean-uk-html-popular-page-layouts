@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+
+    display: grid;
+    grid-template:
+    "top-bar top-bar top-bar" 50px 
+    "servers-list chats main" 1fr / 
+    80px 1fr 1600px;
+}
+
+.top-bar {
+    grid-area: top-bar;
+    background-color: #10050550;
+}
+
+.servers-list {
+    grid-area: servers-list;
+    background-color: #73d27350;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.chats {
+    grid-area: chats;
+    background-color: #7777f150;
+}
+
+.main {
+    grid-area: main;
+    background-color: #dd50dd50;
+}
+
+
+@media screen and (max-width: 880px) {
+    .container {
+        grid-template: 
+        "top-bar   top-bar" 50px 
+        "servers-list  chats " 1fr / 
+        220px 1fr;
+    }
+    
+    .main, {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 520px) {
+    .container {
+        grid-template: auto
+        "top-bar   top-bar" 50px
+        "servers-list  chats" 1fr /
+        80px 1fr;
+    }
+}

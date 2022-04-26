@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+
+    display: grid;
+    grid-template:
+    "top-bar top-bar top-bar top-bar" 50px 
+    "left-menu emails settings shortcuts" 1fr / 
+    220px 1fr 240px 40px;
+}
+
+.top-bar {
+    grid-area: top-bar;
+    background-color: #ff000050;
+}
+
+.left-menu {
+    grid-area: left-menu;
+    background-color: #00ff0050;
+}
+
+.emails {
+    grid-area: emails;
+    background-color: #0000ff50;
+}
+
+.settings {
+    grid-area: settings;
+    background-color: #ff00ff50;
+}
+
+.shortcuts {
+    grid-area: shortcuts;
+    background-color: #ffff0050;
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+@media screen and (max-width: 880px) {
+    .container {
+        grid-template: 
+        "top-bar   top-bar" 50px 
+        "left-menu  emails " 1fr / 
+        220px 1fr;
+    }
+    
+    .settings,
+    .shortcuts {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 520px) {
+    .container {
+        grid-template: auto
+        "top-bar   top-bar" 50px
+        "left-menu  emails" 1fr /
+        80px 1fr;
+    }
+}
